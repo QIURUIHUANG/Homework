@@ -10,23 +10,29 @@
 -- DQL Tasks
 
 -- 1) How many orders were received for products with a category_id = 2
-SELECT count(*) FROM orders WHERE category_id = 2 ; 23 orders
+SELECT count(*) FROM `orders` WHERE category_id = 2 
+23 orders
 
 -- 2) How many orders were received with a category_id of either 2, 4, or 5
-SELECT count (*) FROM orders WHERE category_id in (2,4,5); 66 orders
+SELECT count (*) FROM `orders` WHERE category_id in (2,4,5)
+66 orders
 -- 3) How many order are there with a price over £35.00 
-SELECT count (*) FROM orders WHERE price > 35； 71 orders
+SELECT count (*) FROM `orders` WHERE price > 35
+71 orders
 
 -- 4) How many orders are there where the customer has a date of birth before 1st January 1980 and want to receive the newsletter
-SELECT count(*) FROM orders WHERE date_of_birth < 1980-01-01 AND newsletter = 1; 35 orders
+SELECT count(*) FROM `orders` WHERE date_of_birth < 1980-01-01 AND newsletter = 1
+35 orders
 -- 5)  How many customers named Davenport placed orders?
-SELECT count(*) FROM orders WHERE `customer_firstname` = "Davenport" OR `customer_surname` = "Davenport"; 7 orders
+SELECT count(*) FROM `orders` WHERE `customer_firstname` = "Davenport" OR `customer_surname` = "Davenport" 
+7 orders
 
 -- 6) Which customer with a firstname starting with 'Br', had the most orders
-SELECT * FROM orders WHERE `customer_firstname` LIKE "Br%"; Brenda
+SELECT * FROM `orders` WHERE `customer_firstname` LIKE "Br%"
+Brenda
 
 -- 7) List all orders with products from category 3 by order of price, highest first.
-SELECT * FROM `orders` WHERE `category_id` = 3 ORDER BY `price` DESC;
+SELECT * FROM `orders` WHERE `category_id` = 3 ORDER BY `price` DESC
 | id  | trans_date | product_id | category_id | price | county         | customer_surname | customer_firstname | date_of_birth | newsletter | promo_code     |
 | --- | ---------- | ---------- | ----------- | ----- | -------------- | ---------------- | ------------------ | ------------- | ---------- | -------------- |
 | 6   | 2019-09-02 | 90         | 3           | 99.12 | Ross-shire     | Hooper           | Xandra             | 1975-01-22    | 0          |                |
