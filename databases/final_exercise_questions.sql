@@ -68,3 +68,4 @@ SELECT `category_id`, AVG(`price`), MIN(`price`), MAX(`price`) FROM `orders` GRO
 SELECT category_name, count(orders.id) as "Total order", sum(price) as "Total sales" from orders join categories on (orders.category_id=categories.id) group by category_name;
 
 -- 12) 	List all orders with the following fields (with the labls given) orders.trans_date('Transaction Date'), categories.category_name('Category'), orders.customer_surname('Surname'), orders.customer_firstname('Firstname'), orders.price('Order Price'), categories.category_name('Category'), promotions.discount('Discounted by') 
+SELECT * FROM (`orders` o JOIN `promotions` p ON ( o.promo_code = p.code )) JOIN `categories` c ON ( o.category_id = c.id );
